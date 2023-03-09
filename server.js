@@ -41,5 +41,10 @@ app.get("/weather", (request, response) => {
   response.json(forecasts);
 });
 
+// movie
+app.get("/movies", (request, response) => {
+  response.json("Enjoy your movie.");
+});
+
 // start the server
 app.listen(PORT, () => console.log(`Sever is running on PORT ${PORT}`));
