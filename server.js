@@ -10,6 +10,9 @@ const cors = require("cors");
 // get our instance of express into app
 const app = express();
 
+// middleware (bridge between servers)
+app.use(cors());
+
 // import our data
 const data = require("./data/weather.json");
 
@@ -26,7 +29,7 @@ app.get("/weather", (request, response) => {
   // destucturing our properties from request.query
   const { lat, lon, searchQuery } = request.query;
 
-  // using .find(), check which city has a matching lat lon and searchQuery
+  // using .find(), check which city has a matching searchQuery
   const cityMatch = data.find((city) => city.city_name.toLowerCase() === searchQuery.toLowerCase());
 
   // create a Forecast object for each date in the cityMatch data
